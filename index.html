@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11100e">
+  <meta name="description" content="CountLees is a local-first Windows desktop review candidate. Explore its features, limitations, and setup instructions.">
+  <title>CountLees — Local-first system review</title>
+  <link rel="icon" href="assets/countlees.png">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #11100e;
+      --panel: #211c16;
+      --gold: #d6ac64;
+      --text: #eee1ca;
+      --muted: #b9aa91;
+      --line: #493a26;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(ellipse at 50% 0, #2b2114 0, var(--bg) 42rem);
+      color: var(--text);
+      font: 16px/1.65 "Segoe UI", system-ui, sans-serif;
+    }
+    a { color: var(--gold); }
+    a:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+    .wrap { width: min(100% - 2rem, 940px); margin-inline: auto; }
+    header { padding: 4.5rem 0 3rem; text-align: center; }
+    header img { width: 112px; height: 112px; object-fit: contain; }
+    .eyebrow { color: var(--gold); font-size: .82rem; font-weight: 700; letter-spacing: .18em; }
+    h1 { margin: .25rem 0 0; font-size: clamp(2.8rem, 8vw, 5rem); letter-spacing: .08em; line-height: 1.1; }
+    h2 { color: var(--gold); font-size: 1.55rem; margin-top: 0; }
+    .intro { max-width: 660px; margin: 1rem auto 1.5rem; color: var(--muted); font-size: 1.1rem; }
+    .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: .75rem; margin-top: 1.75rem; }
+    .button { display: inline-block; padding: .7rem 1rem; border: 1px solid var(--gold); border-radius: 6px; color: var(--gold); font-weight: 650; text-decoration: none; }
+    .button.primary { background: var(--gold); color: var(--bg); }
+    main { padding-bottom: 3rem; }
+    section { margin: 1rem 0; padding: 1.5rem; border: 1px solid var(--line); border-radius: 10px; background: color-mix(in srgb, var(--panel) 88%, transparent); }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: .85rem; }
+    .card { padding: 1rem; border: 1px solid var(--line); border-radius: 8px; }
+    .card h3 { margin: 0 0 .4rem; color: var(--gold); }
+    .card p, .muted { color: var(--muted); }
+    code { padding: .12rem .35rem; border-radius: 4px; background: #14120f; color: var(--text); }
+    pre { overflow-x: auto; padding: 1rem; border: 1px solid var(--line); border-radius: 8px; background: #14120f; }
+    .notice { border-left: 3px solid var(--gold); padding-left: 1rem; }
+    footer { padding: 1.5rem 0 2.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; }
+    @media (max-width: 560px) { header { padding-top: 3rem; } section { padding: 1.1rem; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <img src="assets/countlees.png" alt="CountLees emblem">
+    <div class="eyebrow">ENGINEERED FOR LEGACY</div>
+    <h1>COUNTLEES</h1>
+    <p class="intro">A local-first Windows desktop review candidate for system measurements and careful file management.</p>
+    <div class="actions">
+      <a class="button primary" href="https://github.com/agentlee2116-ctrl/LEEWAY-COUNTLEES/archive/refs/heads/main.zip">Download source ZIP</a>
+      <a class="button" href="https://github.com/agentlee2116-ctrl/LEEWAY-COUNTLEES">View source on GitHub</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>What it does</h2>
+      <div class="grid">
+        <article class="card"><h3>System health</h3><p>Displays local disk and platform measurements, with optional CPU and memory telemetry.</p></article>
+        <article class="card"><h3>File review</h3><p>Scans a folder selected by you and classifies older temporary files for review.</p></article>
+        <article class="card"><h3>Recoverable cleanup</h3><p>Moves eligible temporary files into a recovery folder; it does not permanently delete them.</p></article>
+        <article class="card"><h3>Verified ZIP</h3><p>Creates a standard ZIP archive and checks its contents against the source hash.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Run the desktop app</h2>
+      <p class="muted">Download and extract the source ZIP, then use a Windows terminal in the extracted folder. Install Python 3.12+ with Tk support first.</p>
+      <pre><code>py -m pip install -r requirements.txt
+py countlees.py</code></pre>
+      <p class="muted">Or launch <code>Launch-CountLees.cmd</code>. The app runs on your computer and stores account data locally.</p>
+    </section>
+
+    <section>
+      <h2>Important: Pages hosts this site, not the app</h2>
+      <p class="notice">GitHub Pages serves static websites. It cannot run this Python/Tkinter desktop application. This page provides project information and a source download; CountLees itself must be launched on a compatible computer.</p>
+    </section>
+
+    <section>
+      <h2>Review candidate — limitations</h2>
+      <ul class="muted">
+        <li>No cloud accounts, email verification, or password recovery. Local sign-in is not an operating-system security boundary.</li>
+        <li>Only selected <code>.tmp</code>/<code>.temp</code> files older than one day are eligible for recoverable quarantine. This does not immediately free disk space.</li>
+        <li>Compression is standard ZIP, not LeeWay Formula compression; originals are retained.</li>
+        <li>Maintenance settings are links to native Windows settings, not automatic optimization.</li>
+        <li>Android/iOS are not implemented. This candidate is not independently verified or production qualified.</li>
+      </ul>
+    </section>
+  </main>
+  <footer><div class="wrap">CountLees · <a href="https://github.com/agentlee2116-ctrl/LEEWAY-COUNTLEES">Source repository</a></div></footer>
+</body>
+</html>
